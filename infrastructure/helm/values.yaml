@@ -47,3 +47,4 @@ affinity: {}
 app:
   server:
     port: "8080"
+    graphiqlEnabled: "true"
