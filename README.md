@@ -1,4 +1,4 @@
-# user
+# api
 
 API (GraphQL)
 
