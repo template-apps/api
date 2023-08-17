@@ -37,6 +37,8 @@ spec:
               value: "{{ .Values.app.server.port }}"
             - name: USER_SERVICE_URI
               value: "http://user:8080"
+            - name: GRAPHIQL_ENABLED
+              value: "{{ .Values.app.server.graphiqlEnabled }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
