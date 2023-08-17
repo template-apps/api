@@ -95,6 +95,6 @@ jobs:
           config-files: infrastructure/helm/values.yaml
           chart-path: infrastructure/helm
           namespace: ${{vars.NAMESPACE}}
-          values: image.repository=${{ steps.login-ecr.outputs.registry }}/${{vars.NAMESPACE}}-api,image.tag=${{ needs.build.outputs.new_tag }},imagePullSecrets=,autoscaling.enabled=true,ingress.enabled=true,ingress.certificateARN=${{ secrets.CERTIFICATE_ARN }},ingress.host=${{ format('{0}.{1}', 'api', secrets.DOMAIN) }}
+          values: image.repository=${{ steps.login-ecr.outputs.registry }}/${{vars.NAMESPACE}}-api,image.tag=${{ needs.build.outputs.new_tag }},imagePullSecrets=,autoscaling.enabled=true,ingress.enabled=true,ingress.certificateARN=${{ secrets.CERTIFICATE_ARN }},ingress.host=${{ format('{0}.{1}', 'api', vars.DOMAIN) }}
           name: api
 
