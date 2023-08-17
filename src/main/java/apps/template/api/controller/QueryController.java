@@ -2,6 +2,8 @@ package apps.template.api.controller;
 
 import apps.template.api.transfer.User;
 import org.apache.commons.lang3.BooleanUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
@@ -12,12 +14,13 @@ import java.net.URI;
 
 @Controller
 public class QueryController {
+    private static final Logger LOGGER = LoggerFactory.getLogger(QueryController.class);
 
     @Value("${user_service_uri}")
     private String userServiceURI;
 
     @QueryMapping
-    public User getUserForToken(@Argument final String userToken) {
+    public User userForToken(@Argument final String userToken) {
         validateUserToken(userToken);
 
         return new RestTemplate().getForObject(
