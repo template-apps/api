@@ -13,7 +13,7 @@ metadata:
     alb.ingress.kubernetes.io/target-type: "ip"
     {{- if .Values.ingress.certificateARN -}}
     alb.ingress.kubernetes.io/certificate-arn: "{{ .Values.ingress.certificateARN }}"
-    alb.ingress.kubernetes.io/listener-ports: '[{\"HTTP\": 80}, {\"HTTPS\": 443}]'
+    alb.ingress.kubernetes.io/listener-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
     alb.ingress.kubernetes.io/ssl-redirect: '443'
     {{- end }}
 spec:
