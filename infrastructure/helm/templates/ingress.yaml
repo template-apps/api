@@ -11,7 +11,7 @@ metadata:
     alb.ingress.kubernetes.io/healthcheck-path: "/actuator/health/liveness"
     alb.ingress.kubernetes.io/success-codes: "200,201,301,302"
     alb.ingress.kubernetes.io/target-type: "ip"
-    {{- if Values.ingress.certificateARN -}}
+    {{- if .Values.ingress.certificateARN -}}
     alb.ingress.kubernetes.io/certificate-arn: "{{ .Values.ingress.certificateARN }}"
     alb.ingress.kubernetes.io/listener-ports: "[{'HTTP': 80}, {'HTTPS': 443}]"
     alb.ingress.kubernetes.io/ssl-redirect: "443"
