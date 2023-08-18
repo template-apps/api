@@ -1,6 +1,7 @@
 package apps.template.api.controller;
 
 import apps.template.api.transfer.SignupRequest;
+import apps.template.api.transfer.SubscribeRequest;
 import apps.template.api.transfer.UserCredentials;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,4 +38,8 @@ public class MutationController {
         return new RestTemplate().exchange(URI.create(userServiceURI + "/signup"), PUT, new HttpEntity<>(new SignupRequest(email, name, avatarUrl, password)), String.class).getBody();
     }
 
+    @MutationMapping
+    public Boolean subscribe(@Argument final String email) {
+        return new RestTemplate().exchange(URI.create(userServiceURI + "/subscribe"), PUT, new HttpEntity<>(new SubscribeRequest(email)), Boolean.class).getBody();
+    }
 }

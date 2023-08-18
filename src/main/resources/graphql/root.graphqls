@@ -6,4 +6,5 @@ type Mutation {
     authenticate(userName: String!, password: String!) : String!
     authorize(userToken: String!) : Boolean!
     signup(email: String!, name: String!, password: String!, avatarUrl: String) : String!
+    subscribe(email: String!) : Boolean!
 }
